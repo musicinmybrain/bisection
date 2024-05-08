@@ -137,7 +137,7 @@ where
 {
     let (mut lo, mut hi) = bounds_to_indices(a, within);
     while lo < hi {
-        let mid = (lo + hi) / 2;
+        let mid = lo + (hi - lo) / 2;
         if f(&a[mid]) == Ordering::Less {
             hi = mid;
         } else {
@@ -278,7 +278,7 @@ where
 {
     let (mut lo, mut hi) = bounds_to_indices(a, within);
     while lo < hi {
-        let mid = (lo + hi) / 2;
+        let mid = lo + (hi - lo) / 2;
         let cmp = f(&a[mid]);
         if cmp == Ordering::Less {
             lo = mid + 1;
